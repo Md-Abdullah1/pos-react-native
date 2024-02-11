@@ -12,6 +12,8 @@ import Checkout from './src/components/Checkout';
 import Orders from './src/components/Orders';
 import Receipt from './src/components/Receipt';
 import Settings from './src/components/Settings';
+import Home from './src/components/Home';
+
 
 import store from './src/redux/store';
 
@@ -47,9 +49,19 @@ const SettingsScreen = () => {
   );
 };
 
+const HomeStack = createStackNavigator();
+const HomeScreen = () => {
+  return (
+  <HomeStack.Navigator>
+    <HomeStack.Screen name="Home" component={Home} />
+  </HomeStack.Navigator>
+  );
+  
+};
+
 const Tab = createBottomTabNavigator();
 const App = () => (
-  <Root>
+  <Root >
     <Provider store={store}>
       <NavigationContainer>
         <Tab.Navigator
@@ -57,7 +69,10 @@ const App = () => (
             tabBarIcon: ({ color, size }) => {
               if (route.name === 'Checkout') {
                 return <Ionicons name="ios-cart" size={size} color={color} />;
-              } else if (route.name === 'Orders') {
+              }else if( route.name === 'Home'){  
+                return <Ionicons name="ios-home" size={size} color={color} />;
+              }
+               else if (route.name === 'Orders') {
                 return <Ionicons name="ios-archive" size={size} color={color} />;
               } else if (route.name === 'Settings') {
                 return <Ionicons name="ios-settings" size={size} color={color} />;
@@ -69,6 +84,7 @@ const App = () => (
             inactiveTintColor: 'gray',
           }}
         >
+          <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Checkout" component={CheckoutScreen} />
           <Tab.Screen name="Orders" component={OrdersScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />

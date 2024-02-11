@@ -26,5 +26,6 @@ export default StyleSheet.create({
     },
     checkoutTxt: {
         fontSize: 20,
+        border: 1,
     }
 });
