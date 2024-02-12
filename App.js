@@ -1,7 +1,7 @@
 import React from 'react';
 import Amplify from 'aws-amplify';
 import { Provider } from 'react-redux';
-import { Root } from 'native-base';
+// import { Root } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,7 +12,7 @@ import Checkout from './src/components/Checkout';
 import Orders from './src/components/Orders';
 import Receipt from './src/components/Receipt';
 import Settings from './src/components/Settings';
-import Home from './src/components/Home';
+import home from './src/components/Home';
 
 
 import store from './src/redux/store';
@@ -21,47 +21,43 @@ import awsConfig from "./aws-exports";
 Amplify.configure(awsConfig);
 
 const CheckoutStack = createStackNavigator();
-const CheckoutScreen = () => {
-  return (
+const CheckoutScreen = () => (
     <CheckoutStack.Navigator>
       <CheckoutStack.Screen name="Catalog" component={Catalog} />
       <CheckoutStack.Screen name="Checkout" component={Checkout} />
     </CheckoutStack.Navigator>
   )
-};
+
 
 const OrdersStack = createStackNavigator();
-const OrdersScreen = () => {
-  return (
+const OrdersScreen = () => (
     <OrdersStack.Navigator>
       <OrdersStack.Screen name="Orders" component={Orders} />
       <OrdersStack.Screen name="Receipt" component={Receipt} />
     </OrdersStack.Navigator>
   )
-};
+
 
 const SettingsStack = createStackNavigator();
-const SettingsScreen = () => {
-  return (
+const SettingsScreen = () =>  (
     <SettingsStack.Navigator>
       <SettingsStack.Screen name="Settings" component={Settings} />
     </SettingsStack.Navigator>
   );
-};
+
 
 const HomeStack = createStackNavigator();
-const HomeScreen = () => {
-  return (
+const HomeScreen = () =>  (
   <HomeStack.Navigator>
-    <HomeStack.Screen name="Home" component={Home} />
+    <HomeStack.Screen name="Home" component={home} />
   </HomeStack.Navigator>
   );
   
-};
+
 
 const Tab = createBottomTabNavigator();
 const App = () => (
-  <Root >
+  
     <Provider store={store}>
       <NavigationContainer>
         <Tab.Navigator
@@ -91,7 +87,7 @@ const App = () => (
         </Tab.Navigator>
       </NavigationContainer>
     </Provider>
-  </Root>
+ 
 );
 
 export default App;

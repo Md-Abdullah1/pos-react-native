@@ -59,7 +59,7 @@ const Checkout = (props) => {
         <Text>{lineItem.qty}</Text>
       </Left>
       <Body>
-        <Text>{lineItem.description}</Text>
+        <Text >{lineItem.description}</Text>
       </Body>
       <Right>
         <Text>${lineItem.total.toFixed(2)}</Text>

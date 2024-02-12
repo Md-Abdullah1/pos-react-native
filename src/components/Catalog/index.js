@@ -47,9 +47,10 @@ function Catalog(props) {
             <Left>
                 <Thumbnail square source={{ uri: product.image }} />
             </Left>
-            <Body>
-                <Text>{product.name}</Text>
-                <Text note numberOfLines={1}>${product.price}</Text>
+            <Body style={{paddingLeft:'50px'}}>
+
+                <Text >{product.name}</Text>
+                <Text note numberOfLines={1} >${product.price}</Text>
             </Body>
             <Right>
                 <Button onPress={() => addProductHandler(product)}>
