@@ -47,7 +47,7 @@ function Catalog(props) {
             <Left>
                 <Thumbnail square source={{ uri: product.image }} />
             </Left>
-            <Body style={{paddingLeft:'50px'}}>
+            <Body style={{paddingLeft:'40px'}}>
 
                 <Text >{product.name}</Text>
                 <Text note numberOfLines={1} >${product.price}</Text>

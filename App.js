@@ -13,6 +13,7 @@ import Orders from './src/components/Orders';
 import Receipt from './src/components/Receipt';
 import Settings from './src/components/Settings';
 import home from './src/components/Home';
+import Customers from './src/components/Customers';
 
 
 import store from './src/redux/store';
@@ -52,6 +53,16 @@ const HomeScreen = () =>  (
     <HomeStack.Screen name="Home" component={home} />
   </HomeStack.Navigator>
   );
+
+  const CustomersStack = createStackNavigator();
+const CustomersScreen = () => {
+  return (
+    <CustomersStack.Navigator>
+      <CustomersStack.Screen name="Customers" component={Customers} />
+      <OrdersStack.Screen name="Receipt" component={Receipt} />
+    </CustomersStack.Navigator>
+  )
+};
   
 
 
@@ -67,6 +78,8 @@ const App = () => (
                 return <Ionicons name="ios-cart" size={size} color={color} />;
               }else if( route.name === 'Home'){  
                 return <Ionicons name="ios-home" size={size} color={color} />;
+              }else if (route.name === 'Customers') {
+                return <Ionicons name="ios-person" size={size} color={color} />;
               }
                else if (route.name === 'Orders') {
                 return <Ionicons name="ios-archive" size={size} color={color} />;
@@ -82,6 +95,7 @@ const App = () => (
         >
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Checkout" component={CheckoutScreen} />
+          <Tab.Screen name="Customers" component={CustomersScreen} />
           <Tab.Screen name="Orders" component={OrdersScreen} />
           <Tab.Screen name="Settings" component={SettingsScreen} />
         </Tab.Navigator>
